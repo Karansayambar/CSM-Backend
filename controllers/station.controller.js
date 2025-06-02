@@ -9,7 +9,7 @@ const createChargingStation = async (req, res) => {
     status,
     powerOutput,
     connectorType,
-  } = req.body.stationData;
+  } = req.body;
 
   // check all data is present
   if (
@@ -91,7 +91,7 @@ const editStationInfo = async (req, res) => {
     status,
     powerOutput,
     connectorType,
-  } = req.body.stationData;
+  } = req.body;
 
   const { stationId } = req.params;
 

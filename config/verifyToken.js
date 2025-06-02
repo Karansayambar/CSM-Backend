@@ -1,5 +1,6 @@
 const jwt = require("jsonwebtoken");
-SECREAT_KEY = "8263812683182";
+const dotenv = require("dotenv");
+dotenv.config();
 
 const verifyToken = (req, res, next) => {
   // Get token from Authorization header
@@ -19,7 +20,7 @@ const verifyToken = (req, res, next) => {
 
   try {
     // Verify token with secret key
-    const verified = jwt.verify(token, SECREAT_KEY);
+    const verified = jwt.verify(token, process.env.SECREAT_KEY);
     req.user = verified;
     next();
   } catch (error) {

@@ -9,10 +9,10 @@ const {
 const verifyToken = require("../config/verifyToken");
 const chargetRoute = express.Router();
 
-chargetRoute.post("/add-charger-station", createChargingStation);
-chargetRoute.get("/", getStationList);
+chargetRoute.post("/add-charger-station", verifyToken, createChargingStation);
+chargetRoute.get("/", verifyToken, getStationList);
 chargetRoute.get("/:stationId", verifyToken, getStation);
-chargetRoute.put("/update/:stationId", editStationInfo);
-chargetRoute.delete("/delete/:stationId", deleteStation);
+chargetRoute.put("/update/:stationId", verifyToken, editStationInfo);
+chargetRoute.delete("/delete/:stationId", verifyToken, deleteStation);
 
 module.exports = chargetRoute;

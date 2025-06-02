@@ -1,8 +1,8 @@
 const bcrypt = require("bcrypt");
 const Auth = require("../module/auth.module");
 const jwt = require("jsonwebtoken");
-
-SECREAT_KEY = "8263812683182";
+const dotenv = require("dotenv");
+dotenv.config();
 
 const registerUser = async (req, res) => {
   const { name, email, password } = req.body.userData;
@@ -54,7 +54,7 @@ const loginUser = async (req, res) => {
     }
 
     // if user present generate a json token
-    const token = jwt.sign({ id: User._id }, SECREAT_KEY);
+    const token = jwt.sign({ id: User._id }, process.env.SECREAT_KEY);
 
     return res.status(200).json({
       message: "User logined Successfully",
