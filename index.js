@@ -8,8 +8,8 @@ const app = express();
 const PORT = 3000;
 app.use(
   cors({
-    // origin: "https://csm-frontend-kappa.vercel.app",
-    origin: "http://localhost:5173",
+    origin: "https://csm-frontend-kappa.vercel.app",
+    // origin: "http://localhost:5173",
   })
 );
 app.use(express.json());
